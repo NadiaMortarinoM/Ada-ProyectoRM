@@ -32,7 +32,9 @@ container.innerHTML =
 `<div class="card">
      <h2>${character.name}</h2>
      <img src="${character.image}" alt="">
-     <p>${character.status}</p>
+     <li>${character.status}</li>
+     <li>${character.species}</li>
+     <li>${character.gender}</li>
      <button class="button" onclick = Description()>Regresar</button>
 </div>`
 })
@@ -40,6 +42,3 @@ container.innerHTML =
 
 
 
-
-
-//> < => `

@@ -38,6 +38,18 @@ header {
 .card img {
     border-radius: 20%;
 }
+li {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: blue;
+    font-size: 1rem;
+    }
+.button {
+    color: white;
+    border-color: rgb(77, 77, 226);
+    border-style: double;
+    background-color: rgb(77, 77, 226);
+   
+}
 /*Footer*/
 footer {
     background-color: rgba(128, 128, 128, 0.811);
