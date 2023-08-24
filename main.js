@@ -18,12 +18,12 @@ container.innerHTML +=
 `<div class="card">
      <h2>${character.name}</h2>
      <img src="${character.image}" alt="">
-     <button class="button" onclick = verDescripcion("${character.url}")>ver Detalles</button>
+     <button class="button" onclick = Description("${character.url}")>Details</button>
 </div>`
     });
 }
 
-const verDescripcion = (characterUrl) => {
+const Description = (characterUrl) => {
 container.innerHTML = ""
 fetch (characterUrl)
 .then ((res) => res.json())
@@ -33,7 +33,7 @@ container.innerHTML =
      <h2>${character.name}</h2>
      <img src="${character.image}" alt="">
      <p>${character.status}</p>
-     <button class="button" onclick = verDescripcion()>Volver</button>
+     <button class="button" onclick = Description()>Regresar</button>
 </div>`
 })
 }
