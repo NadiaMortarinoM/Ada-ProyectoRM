@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bricolage Grotesque', sans-serif;;
+}
+header {
+    background-color: rgba(15, 175, 175, 0.452);
+    color: black;
+    font-size: 1rem;
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 1.2rem;
+
+    }
+img {
+    width: 9rem;
+    height: 9rem;
+}
+.container {
+    background-color: rgba(0, 255, 255, 0.301);
+    color: black;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1.5rem;
+    padding-left: 9rem;
+    height: 4rem;
+   
+}
+.container2{
+    background-color: rgba(13, 176, 176, 0.301);
+    padding-top: 2rem;
+    height: 9rem;
+    
+}
+.presentacion{
+    padding-top: 2rem;
+    justify-content: center;
+    text-align: center;
+
+}
+footer{
+    background-color: darkcyan;
+    text-align: center;
+    height: 5rem;
+    padding-top: 2rem;
+}
+
