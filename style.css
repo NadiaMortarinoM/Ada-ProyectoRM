@@ -17,6 +17,27 @@ header {
     color: aqua;
 
 }
+.filters {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+
+
+
+}
+.filter {
+   color: white;
+    justify-content: flex-start;
+    margin-right: 2rem;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    border-radius: 1rem;
+    width: 9rem;
+    background: linear-gradient(to bottom right, blue, pink);
+    border-color: rgb(77, 77, 226);
+
+
+}
+
+    
 /*Cards*/
 #container {
     background-color: rgb(194, 249, 249);
@@ -40,14 +61,16 @@ header {
 }
 li {
     font-family: 'Bricolage Grotesque', sans-serif;
-    color: blue;
+    color: rgb(18, 18, 41);
     font-size: 1rem;
+    display: block;
     }
 .button {
     color: white;
     border-color: rgb(77, 77, 226);
     border-style: double;
-    background-color: rgb(77, 77, 226);
+    background: linear-gradient(to bottom right, blue, pink);
+    border-radius: 1rem;
    
 }
 /*Siguiente Página*/
@@ -58,12 +81,14 @@ li {
     
     
 }
-.next {
+.prevNext {
     color: white;
-    background-color: aqua;
-    background-color: rgb(77, 77, 226);
+    background: linear-gradient(to bottom right, blue, pink);
     box-shadow: none;
     font-family: 'Bricolage Grotesque', sans-serif;
+}
+.prevNext:active {
+    background: linear-gradient(to bottom right, rgb(45, 45, 50), rgb(249, 227, 231));
 }
 /*Footer*/
 footer {

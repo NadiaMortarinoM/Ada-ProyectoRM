@@ -1,7 +1,7 @@
 //primero declaramos la variable que contiene todas las tarjetas:
 const container = document.getElementById("container");
 let currentPage = 1;
-let totalPages=0;
+let totalPages = 0;
 //filtros (género: tener botones de todos, mujeres, hombres, desconocido)
 //radious button
 const todosBtn = document.getElementById("todos");
@@ -41,11 +41,11 @@ const Description = (detailPage) => {
     `<div class="card">
          <h2>${detailPageJson.name}</h2>
          <img src="${detailPageJson.image}" alt="">
-         <li>${detailPageJson.status}</li>
-         <li>${detailPageJson.species}</li>
-         <li>${detailPageJson.gender}</li>
-         <li>${detailPageJson.location.name}</li>
-         <li>${detailPageJson.origin.name}</li>
+         <li>Estado: ${detailPageJson.status}</li>
+         <li>Especie: ${detailPageJson.species}</li>
+         <li>Género: ${detailPageJson.gender}</li>
+         <li>Nombre: ${detailPageJson.location.name}</li>
+         <li>Origen: ${detailPageJson.origin.name}</li>
          <button class="button" onclick = BackToHome()>Back</button>
     </div>`
     })
@@ -62,7 +62,7 @@ getCharacters(currentPage);
 
 // Evento para avanzar a la siguiente página
 const nextBtn = document.getElementById("nextButton");
-const prevBtn =document.getElementById("prevButton");
+const prevBtn = document.getElementById("prevButton");
 
 nextBtn.addEventListener("click", () => {
 if (currentPage <= 1)   {
@@ -92,12 +92,15 @@ prevBtn.addEventListener("click", () => {
     getCharacters(currentPage);
        
     });
-//const filterCharacters = (filterParam, valueParam) =>{
-    //fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
-//}
+
+
+const filterCharacters = (filterParam, valueParam) =>{
+    container.innerHTML="";
+    fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
+}
 //filtros
-//mujeresBtn.addEventListener("click", ()=>
-    //filterCharacters("gender", "female"));
+mujeresBtn.addEventListener("click", ()=>
+    filterCharacters("gender", "female"));
 
 
 
