@@ -93,14 +93,33 @@ prevBtn.addEventListener("click", () => {
        
     });
 
-
-const filterCharacters = (filterParam, valueParam) =>{
+//filtros por género y planeta Tierra:
+const filterWomen = (filterParam, valueParam) =>{
     container.innerHTML="";
     fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
 }
-//filtros
+
 mujeresBtn.addEventListener("click", ()=>
-    filterCharacters("gender", "female"));
+    filterWomen("gender", "female"));
+
+//hombres:
+const filterMen = (filterParam, valueParam) =>{
+        container.innerHTML="";
+        fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
+    }
+    
+    hombresBtn.addEventListener("click", ()=>
+        filterMen("gender", "male"));
+//desconocidos:
+const filterUnknown = (filterParam, valueParam) =>{
+    container.innerHTML="";
+    fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
+}
+
+unknownBtn.addEventListener("click", ()=>
+       filterUnknown ("gender", "unknown"));
+
+    
 
 
 
