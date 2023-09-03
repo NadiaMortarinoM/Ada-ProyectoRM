@@ -47,7 +47,7 @@ const Description = (detailPage) => {
          <li>Nombre: ${detailPageJson.location.name}</li>
          <li>Origen: ${detailPageJson.origin.name}</li>
          <button class="button-detail" onclick = BackToHome()>Back</button>
-         <button class="button-detail" onclick = VerMas()>More +</button>
+         <button class="button-detail" onclick = VerMas("${detailPage}")>More +</button>
     </div>`
     })
 }
@@ -59,7 +59,6 @@ const BackToHome = () =>{
 getCharacters(currentPage);
 //Más detalles del personaje:
 const VerMas = (moreDetail) => {
-    container.innerHTML = ""
     fetch (moreDetail)
     .then ((res) => res.json())
     .then ((moreDetailJson) => {
@@ -69,10 +68,10 @@ const VerMas = (moreDetail) => {
          <img src="${moreDetailJson.image}" alt="">
          <li>Tipo: ${moreDetailJson.type}</li>
          <li>Creación: ${moreDetailJson.created}</li>
+         <button class="button-detail" onclick = BackToHome()>Back</button>
     </div>`
 })
 }
-//
 
 // Evento para avanzar a la siguiente página:
 const nextBtn = document.getElementById("nextButton");
@@ -81,14 +80,16 @@ const prevBtn = document.getElementById("prevButton");
 nextBtn.addEventListener("click", () => {
 if (currentPage <= 1)   {
     currentPage++;
+    getCharacters(currentPage);
 } else if (currentPage >1 && currentPage < totalPages) { //pasamos de la página 2 a la 41
     prevBtn.removeAttribute("disabled", false)
     currentPage++;
+    getCharacters(currentPage);
 } else  {
     nextBtn.setAttribute("disabled", true)
 } 
 
-getCharacters(currentPage);
+
    
 });
 // Evento para la página anterior:
