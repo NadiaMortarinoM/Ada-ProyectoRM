@@ -11,6 +11,7 @@ header {
     text-align: center;
     height: 8rem;
     padding-top: 2rem;
+    width: 100vw;
 }
 .contacto {
     text-decoration: none;
@@ -19,10 +20,8 @@ header {
 }
 .filters {
     margin-top: 1.5rem;
-    padding-top: 1.5rem;
-
-
-
+    padding-top: 1.2rem;
+    width: 100vw;
 }
 .filter {
    color: white;
@@ -33,18 +32,20 @@ header {
     width: 9rem;
     background: linear-gradient(to bottom right, blue, pink);
     border-color: rgb(77, 77, 226);
-
-
-}
-
     
+}  
+.filter:hover {
+    color: gray;
+}
 /*Cards*/
 #container {
-    background-color: rgb(194, 249, 249);
+    /*background-color: rgb(194, 249, 249);*/
+    background-image: url(img/cyan-background-hd.jpg);
     display: flex;
     flex-direction: row;
     gap: 3rem;
-    padding: 6rem;
+    padding: 4rem;
+   justify-content: center;
     width: 100vw;
     height: fit-content;
     flex-wrap: wrap;
@@ -73,28 +74,42 @@ li {
     border-radius: 1rem;
    
 }
+.button:hover {
+    color: green;
+}
+.button-detail {
+    color: white;
+    border-color: rgb(77, 77, 226);
+    border-style: double;
+    background: linear-gradient(to bottom right, blue, pink);
+    border-radius: 1rem;
+    width: 11rem;
+    margin-left: 4rem;
+}
 /*Siguiente Página*/
 .page {
-   
+    background-image: url(img/cyan-background-hd.jpg);
     height: 2rem;
     text-align: center;
-    
-    
+    padding-top: 0.5rem;
+    width: 100vw;
+       
 }
 .prevNext {
     color: white;
     background: linear-gradient(to bottom right, blue, pink);
     box-shadow: none;
     font-family: 'Bricolage Grotesque', sans-serif;
+    border-color: blueviolet;
 }
-.prevNext:active {
-    background: linear-gradient(to bottom right, rgb(45, 45, 50), rgb(249, 227, 231));
+.prevNext:hover {
+    color: gray;
 }
 /*Footer*/
 footer {
     background-color: rgba(128, 128, 128, 0.811);
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     height: 4rem;
     text-align: center;
     padding-top: 1.5rem;
