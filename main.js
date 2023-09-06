@@ -3,6 +3,7 @@ const container = document.getElementById("container");
 let currentPage = 1;
 let totalPages = 0;
 //filtros (género: tener botones de sin género, mujeres, hombres, desconocido)
+const todosBtn = document.getElementById("todos");
 const singeneroBtn = document.getElementById("sin-genero");
 const mujeresBtn = document.getElementById("mujeres");
 const hombresBtn = document.getElementById("hombres");
@@ -107,6 +108,17 @@ prevBtn.addEventListener("click", () => {
     getCharacters(currentPage);
        
 });
+
+//filtro Todos
+const filterTodos = (todosPersonajes) =>{
+    container.innerHTML="";
+    fetch(`https://rickandmortyapi.com/api/character/?${todosPersonajes}`)
+    .then(res=>res.json())
+    .then(data=>imageOfCharacters(data))
+}
+
+todosBtn.addEventListener("click", ()=>
+    filterWomen("todos"));
 
 //filtro mujeres:
 const filterWomen = (filterParam, valueParam) =>{

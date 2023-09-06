@@ -40,14 +40,18 @@ header {
 /*Cards*/
 #container {
     /*background-color: rgb(194, 249, 249);*/
-    background-image: url(img/cyan-background-hd.jpg);
+    background-image: url(img/images.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     flex-direction: row;
     gap: 3rem;
     padding: 4rem;
-   justify-content: center;
+    justify-content: center;
     width: 100vw;
-    height: fit-content;
+    
     flex-wrap: wrap;
 }
 .card {
@@ -88,7 +92,7 @@ li {
 }
 /*Siguiente Página*/
 .page {
-    background-image: url(img/cyan-background-hd.jpg);
+    background-color:rgb(100,149,237);
     height: 2rem;
     text-align: center;
     padding-top: 0.5rem;
@@ -107,7 +111,7 @@ li {
 }
 /*Footer*/
 footer {
-    background-color: rgba(128, 128, 128, 0.811);
+    background-color: rgb(192,192,192);
     color: white;
     font-size: 1.2rem;
     height: 4rem;
