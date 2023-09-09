@@ -39,7 +39,6 @@ header {
 }
 /*Cards*/
 #container {
-    /*background-color: rgb(194, 249, 249);*/
     background-image: url(img/images.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,7 +50,6 @@ header {
     padding: 4rem;
     justify-content: center;
     width: 100vw;
-    
     flex-wrap: wrap;
 }
 .card {
@@ -59,16 +57,18 @@ header {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-   
 }
 .card img {
     border-radius: 20%;
+    border-color: black;
+    border-style: dashed;
 }
 li {
     font-family: 'Bricolage Grotesque', sans-serif;
     color: rgb(18, 18, 41);
     font-size: 1rem;
     display: block;
+    font-weight: bold;
     }
 .button {
     color: white;
@@ -120,3 +120,15 @@ footer {
     width: 100vw;
     
 }
+
+@media (max-width :850px) {
+    body {
+
+      justify-content: center;
+    }
+    .filter {
+        background: linear-gradient(to bottom right, rgb(0, 255, 153), rgb(237, 117, 137));
+        width: 5.4rem;
+        color: black;
+    }
+  }

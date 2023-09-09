@@ -89,8 +89,6 @@ if (currentPage <= 1)   {
 } else  {
     nextBtn.setAttribute("disabled", true)
 } 
-
-
    
 });
 // Evento para la página anterior:
@@ -105,43 +103,45 @@ prevBtn.addEventListener("click", () => {
         currentPage--;
     } 
     
-    getCharacters(currentPage);
-       
+    getCharacters(currentPage);      
 });
 
-//filtro Todos
+//filtro Todos:
 const filterTodos = (todosPersonajes) =>{
     container.innerHTML="";
     fetch(`https://rickandmortyapi.com/api/character/?${todosPersonajes}`)
     .then(res=>res.json())
     .then(data=>imageOfCharacters(data))
 }
-
 todosBtn.addEventListener("click", ()=>
     filterWomen("todos"));
 
 //filtro mujeres:
 const filterWomen = (filterParam, valueParam) =>{
     container.innerHTML="";
-    fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
+    fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
+    .then(res=>res.json())
+    .then(data=>imageOfCharacters(data))
 }
-
 mujeresBtn.addEventListener("click", ()=>
     filterWomen("gender", "female"));
 
 //hombres:
 const filterMen = (filterParam, valueParam) =>{
         container.innerHTML="";
-        fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
-    }
-    
+        fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
+        .then(res=>res.json())
+        .then(data=>imageOfCharacters(data))
+}    
 hombresBtn.addEventListener("click", ()=>
         filterMen("gender", "male"));
 
 //desconocidos:
 const filterUnknown = (filterParam, valueParam) =>{
     container.innerHTML="";
-    fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
+    fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
+    .then(res=>res.json())
+    .then(data=>imageOfCharacters(data))
 }
 desconocidoBtn.addEventListener("click", ()=>
        filterUnknown ("gender", "unknown"));
@@ -149,7 +149,9 @@ desconocidoBtn.addEventListener("click", ()=>
 //filtro: sin género:
 const filterGenderless = (filterParam, valueParam) =>{
     container.innerHTML="";
-    fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`).then(res=>res.json()).then(data=>imageOfCharacters(data))
+    fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
+    .then(res=>res.json())
+    .then(data=>imageOfCharacters(data))
 }
 singeneroBtn.addEventListener("click", ()=>
        filterGenderless ("gender", "genderless"));
