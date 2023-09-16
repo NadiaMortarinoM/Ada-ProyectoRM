@@ -14,8 +14,7 @@ const getCharacters = (pageNumber) => {
     container.innerHTML="";
     fetch (`https://rickandmortyapi.com/api/character?page=${pageNumber}`)
     .then ((res) => res.json())
-    .then ((data) => {
-        imageOfCharacters(data)
+    .then ((data) => {imageOfCharacters(data)
 totalPages = data.info.pages;
     })
 }
@@ -114,16 +113,17 @@ const filterTodos = (todosPersonajes) =>{
     .then(data=>imageOfCharacters(data))
 }
 todosBtn.addEventListener("click", ()=>
-    filterWomen("todos"));
+    filterTodos("todos"));
 
 //filtro mujeres:
-const filterWomen = (filterParam, valueParam) =>{
-    container.innerHTML="";
+const filterWomen = (filterParam, valueParam) => {
+    container.innerHTML = "";
     fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
-    .then(res=>res.json())
-    .then(data=>imageOfCharacters(data))
+        .then(res => res.json())
+        .then(data => imageOfCharacters(data));
+        
 }
-mujeresBtn.addEventListener("click", ()=>
+mujeresBtn.addEventListener("click", () => 
     filterWomen("gender", "female"));
 
 //hombres:
@@ -156,6 +156,8 @@ const filterGenderless = (filterParam, valueParam) =>{
 singeneroBtn.addEventListener("click", ()=>
        filterGenderless ("gender", "genderless"));
 
+
+    
 
 
 

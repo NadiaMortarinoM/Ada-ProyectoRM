@@ -16,7 +16,6 @@ header {
 .contacto {
     text-decoration: none;
     color: aqua;
-
 }
 .filters {
     margin-top: 1.5rem;
@@ -31,8 +30,7 @@ header {
     border-radius: 1rem;
     width: 9rem;
     background: linear-gradient(to bottom right, blue, pink);
-    border-color: rgb(77, 77, 226);
-    
+    border-color: rgb(77, 77, 226);    
 }  
 .filter:hover {
     color: gray;
@@ -69,14 +67,13 @@ li {
     font-size: 1rem;
     display: block;
     font-weight: bold;
-    }
+}
 .button {
     color: white;
     border-color: rgb(77, 77, 226);
     border-style: double;
     background: linear-gradient(to bottom right, blue, pink);
-    border-radius: 1rem;
-   
+    border-radius: 1rem;   
 }
 .button:hover {
     color: green;
@@ -120,7 +117,7 @@ footer {
     width: 100vw;
     
 }
-
+/*Hacer el diseño responsive: */
 @media (max-width :850px) {
     body {
 
