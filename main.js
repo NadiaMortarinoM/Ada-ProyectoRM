@@ -2,6 +2,7 @@
 const container = document.getElementById("container");
 let currentPage = 1;
 let totalPages = 0;
+let currentGender = "";
 //filtros (género: tener botones de sin género, mujeres, hombres, desconocido)
 const todosBtn = document.getElementById("todos");
 const singeneroBtn = document.getElementById("sin-genero");
@@ -12,10 +13,14 @@ const desconocidoBtn = document.getElementById("desconocido");
 //declaramos la llamada a la api:
 const getCharacters = (pageNumber) => {
     container.innerHTML="";
-    fetch (`https://rickandmortyapi.com/api/character?page=${pageNumber}`)
+    let genderPath = "";
+    if (currentGender) {
+        genderPath = `&gender=${currentGender}`;
+    }
+    fetch (`https://rickandmortyapi.com/api/character?page=${pageNumber}${genderPath}`)
     .then ((res) => res.json())
     .then ((data) => {imageOfCharacters(data)
-totalPages = data.info.pages;
+        totalPages = data.info.pages;
     })
 }
 
@@ -33,7 +38,7 @@ container.innerHTML +=
 
 //Detalles de cada card, dandole atributos:
 const Description = (detailPage) => {
-    container.innerHTML = ""
+    container.innerHTML = "";
     fetch (detailPage)
     .then ((res) => res.json())
     .then ((detailPageJson) => {
@@ -56,7 +61,10 @@ const BackToHome = () =>{
     window.history.back();
     location.reload();
 }
+
+//viewDidAppear
 getCharacters(currentPage);
+
 //Más detalles del personaje:
 const VerMas = (moreDetail) => {
     fetch (moreDetail)
@@ -78,10 +86,11 @@ const nextBtn = document.getElementById("nextButton");
 const prevBtn = document.getElementById("prevButton");
 
 nextBtn.addEventListener("click", () => {
+
 if (currentPage <= 1)   {
     currentPage++;
     getCharacters(currentPage);
-} else if (currentPage >1 && currentPage < totalPages) { //pasamos de la página 2 a la 41
+} else if (currentPage > 1 && currentPage < totalPages) { //pasamos de la página 2 a la 41
     prevBtn.removeAttribute("disabled", false)
     currentPage++;
     getCharacters(currentPage);
@@ -100,15 +109,16 @@ prevBtn.addEventListener("click", () => {
     } else  {
         nextBtn.setAttribute("disabled", true)
         currentPage--;
-    } 
-    
+    }    
     getCharacters(currentPage);      
 });
 
 //filtro Todos:
-const filterTodos = (todosPersonajes) =>{
+const filterTodos = () =>{
     container.innerHTML="";
-    fetch(`https://rickandmortyapi.com/api/character/?${todosPersonajes}`)
+    currentGender = "";
+    currentPage = 1;
+    fetch(`https://rickandmortyapi.com/api/character`)
     .then(res=>res.json())
     .then(data=>imageOfCharacters(data))
 }
@@ -118,10 +128,11 @@ todosBtn.addEventListener("click", ()=>
 //filtro mujeres:
 const filterWomen = (filterParam, valueParam) => {
     container.innerHTML = "";
+    currentGender = "female";
+    currentPage = 1;
     fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
         .then(res => res.json())
-        .then(data => imageOfCharacters(data));
-        
+        .then(data => imageOfCharacters(data));        
 }
 mujeresBtn.addEventListener("click", () => 
     filterWomen("gender", "female"));
@@ -129,6 +140,8 @@ mujeresBtn.addEventListener("click", () =>
 //hombres:
 const filterMen = (filterParam, valueParam) =>{
         container.innerHTML="";
+        currentGender = "male";
+        currentPage = 1;
         fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
         .then(res=>res.json())
         .then(data=>imageOfCharacters(data))
@@ -139,6 +152,8 @@ hombresBtn.addEventListener("click", ()=>
 //desconocidos:
 const filterUnknown = (filterParam, valueParam) =>{
     container.innerHTML="";
+    currentGender = "unknown";
+    currentPage = 1;
     fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
     .then(res=>res.json())
     .then(data=>imageOfCharacters(data))
@@ -147,11 +162,16 @@ desconocidoBtn.addEventListener("click", ()=>
        filterUnknown ("gender", "unknown"));
 
 //filtro: sin género:
-const filterGenderless = (filterParam, valueParam) =>{
+const filterGenderless = (filterParam, valueParam) => {
     container.innerHTML="";
+    currentGender = "genderless";
+    currentPage = 1;
     fetch(`https://rickandmortyapi.com/api/character/?${filterParam}=${valueParam}`)
     .then(res=>res.json())
     .then(data=>imageOfCharacters(data))
+    .catch((error) => {
+        console.error("No more characters of gender genderless");
+    })
 }
 singeneroBtn.addEventListener("click", ()=>
        filterGenderless ("gender", "genderless"));
