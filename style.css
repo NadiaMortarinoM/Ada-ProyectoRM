@@ -118,14 +118,18 @@ footer {
     
 }
 /*Hacer el diseño responsive: */
-@media (max-width :850px) {
+@media (max-width :800px) and (min-width: 300px) {
     body {
 
       justify-content: center;
+    
     }
     .filter {
         background: linear-gradient(to bottom right, rgb(0, 255, 153), rgb(237, 117, 137));
         width: 5.4rem;
         color: black;
+    }
+    .card {
+        margin-top: 2rem;
     }
   }
